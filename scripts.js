@@ -19929,7 +19929,7 @@ const JT = [["path", {
                             children: [f.jsx("h4", {
                                 children: "Email"
                             }), f.jsx("p", {
-                                children: "contact@SharkTechSolutions"
+                                children: "contact@sharktechsolutions.in"
                             })]
                         })]
                     }), f.jsxs("div", {
@@ -20195,7 +20195,7 @@ const JT = [["path", {
                     }), f.jsx("h4", {
                         children: "10. Contact Information"
                     }), f.jsx("p", {
-                        children: "For questions about these terms, please contact us at contact@SharkTechSolutions"
+                        children: "For questions about these terms, please contact us at contact@sharktechsolutions.in"
                     })]
                 })
             })]
@@ -20352,7 +20352,7 @@ const JT = [["path", {
                     }), f.jsx("h4", {
                         children: "11. Contact Us"
                     }), f.jsx("p", {
-                        children: "For privacy-related questions or requests, please contact us at contact@SharkTechSolutions"
+                        children: "For privacy-related questions or requests, please contact us at contact@sharktechsolutions.in"
                     })]
                 })
             })]
@@ -20491,11 +20491,11 @@ const JT = [["path", {
                         children: [f.jsxs("p", {
                             children: [f.jsx(Xc, {
                                 size: 16
-                            }), " contact@SharkTechSolutions"]
+                            }), " contact@sharktechsolutions.in"]
                         }), f.jsxs("p", {
                             children: [f.jsx(Y0, {
                                 size: 16
-                            }), "Noida, UP 201309, India"]
+                            }), "B-54, B-Block, sector 63A, Noida, UP, 201301, India"]
                         })]
                     })]
                 })]
@@ -20549,7 +20549,7 @@ const JT = [["path", {
             size: 20
         }),
         label: "Email Us",
-        action: () => window.open("mailto:contact@SharkTechSolutions")
+        action: () => window.open("mailto:contact@sharktechsolutions.in")
     }, {
         icon: f.jsx(jT, {
             size: 20
@@ -20669,3 +20669,4 @@ function rA() {
 A1.createRoot(document.getElementById("root")).render(f.jsx(L.StrictMode, {
     children: f.jsx(rA, {})
 }));
+
