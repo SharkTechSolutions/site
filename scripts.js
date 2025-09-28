@@ -11548,7 +11548,7 @@ Error generating stack: ` + n.message + `
         }
     }
     var Vl = !0;
-    function o1(t, e, n, a) {
+    async function o1(t, e, n, a) {
         var l = w.T;
         w.T = null;
         var u = q.p;
@@ -19967,116 +19967,131 @@ const JT = [["path", {
                     viewport: {
                         once: !0
                     },
-                   onSubmit: async (e) => {
-    e.preventDefault();
-    // setC(true);   // loading spinner
-    // setD(null);   // reset status
-try {
-    const res = await fetch('https://sitemain.onrender.com/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(i) // i = { name, email, phone, service, message }
-    });
+                    onSubmit: b,
+                    children: [f.jsxs("div", {
+                        className: "form-group",
+                        children: [f.jsx("input", {
+                            type: "text",
+                            name: "name",
+                            placeholder: "Your Name *",
+                            value: i.name,
+                            onChange: S,
+                            className: o.name ? "error" : "",
+                            required: !0
+                        }), o.name && f.jsx("span", {
+                            className: "error-message",
+                            children: o.name
+                        })]
+                    }), f.jsxs("div", {
+                        className: "form-group",
+                        children: [f.jsx("input", {
+                            type: "email",
+                            name: "email",
+                            placeholder: "Your Email *",
+                            value: i.email,
+                            onChange: S,
+                            className: o.email ? "error" : "",
+                            required: !0
+                        }), o.email && f.jsx("span", {
+                            className: "error-message",
+                            children: o.email
+                        })]
+                    }), f.jsxs("div", {
+                        className: "form-group",
+                        children: [f.jsx("input", {
+                            type: "tel",
+                            name: "phone",
+                            placeholder: "Your Phone (Optional)",
+                            value: i.phone,
+                            onChange: S,
+                            className: o.phone ? "error" : ""
+                        }), o.phone && f.jsx("span", {
+                            className: "error-message",
+                            children: o.phone
+                        })]
+                    }), f.jsx("div", {
+                        className: "form-group",
+                        children: f.jsxs("select", {
+                            name: "service",
+                            value: i.service,
+                            onChange: S,
+                            children: [f.jsx("option", {
+                                value: "",
+                                children: "Select a Service (Optional)"
+                            }), g.map( (A, N) => f.jsx("option", {
+                                value: A,
+                                children: A
+                            }, N))]
+                        })
+                    }), f.jsxs("div", {
+                        className: "form-group",
+                        children: [f.jsx("textarea", {
+                            name: "message",
+                            placeholder: "Your Message *",
+                            rows: "5",
+                            value: i.message,
+                            onChange: S,
+                            className: o.message ? "error" : "",
+                            required: !0
+                        }), o.message && f.jsx("span", {
+                            className: "error-message",
+                            children: o.message
+                        })]
+                    }), f.jsx("button", {
+                        type: "submit",
+                        onClick: async ()=>{
+                            try {
+                            console.log("form submitted handler invoked");
+                            const res = await fetch('https://sitemain.onrender.com/contact', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(i) // i = { name, email, phone, service, message }
+                            });
 
-    const data = await res.json();
-    console.log("Data received on backend:", data);
+                            const data = await res.json();
+                            console.log("Data received on backend:", data);
 
-    if(res.ok){
-        setD("success"); // show success popup
-        setI({ name: "", email: "", phone: "", service: "", message: "" }); // clear form
-    } else {
-        setD("error"); // show error popup
-        console.error("Backend error:", data);
-    }
-} catch(err) {
-    setD("error");
-    console.error("Fetch error:", err);
-} finally {
-    setC(false); // stop loading spinner
-}
-},
-children: [
-    f.jsxs("div", {
-        className: "form-group",
-        children: [f.jsx("input", {
-            type: "text",
-            name: "name",
-            placeholder: "Your Name *",
-            value: i.name,
-            onChange: S,
-            className: o.name ? "error" : "",
-            required: !0
-        }), o.name && f.jsx("span", { className: "error-message", children: o.name })]
-    }),
-    f.jsxs("div", {
-        className: "form-group",
-        children: [f.jsx("input", {
-            type: "email",
-            name: "email",
-            placeholder: "Your Email *",
-            value: i.email,
-            onChange: S,
-            className: o.email ? "error" : "",
-            required: !0
-        }), o.email && f.jsx("span", { className: "error-message", children: o.email })]
-    }),
-    f.jsxs("div", {
-        className: "form-group",
-        children: [f.jsx("input", {
-            type: "tel",
-            name: "phone",
-            placeholder: "Your Phone (Optional)",
-            value: i.phone,
-            onChange: S,
-            className: o.phone ? "error" : ""
-        }), o.phone && f.jsx("span", { className: "error-message", children: o.phone })]
-    }),
-    f.jsx("div", {
-        className: "form-group",
-        children: f.jsxs("select", {
-            name: "service",
-            value: i.service,
-            onChange: S,
-            children: [
-                f.jsx("option", { value: "", children: "Select a Service (Optional)" }),
-                g.map((A, N) => f.jsx("option", { value: A, children: A }, N))
-            ]
-        })
-    }),
-    f.jsxs("div", {
-        className: "form-group",
-        children: [f.jsx("textarea", {
-            name: "message",
-            placeholder: "Your Message *",
-            rows: "5",
-            value: i.message,
-            onChange: S,
-            className: o.message ? "error" : "",
-            required: !0
-        }), o.message && f.jsx("span", { className: "error-message", children: o.message })]
-    }),
-    f.jsx("button", {
-        type: "submit",
-        className: "btn btn-primary",
-        disabled: c,
-        children: c ? f.jsxs(f.Fragment, {
-            children: [f.jsx("div", { className: "spinner" }), "Sending..."]
-        }) : f.jsxs(f.Fragment, {
-            children: ["Send Message ", f.jsx(Gc, { size: 20 })]
-        })
-    }),
-    d && f.jsx(ft.div, {
-        className: `submit-status ${d}`,
-        initial: { opacity: 0, y: 10 },
-        animate: { opacity: 1, y: 0 },
-        children: d === "success" ? f.jsxs(f.Fragment, {
-            children: [f.jsx(Hn, { size: 20 }), "Message sent successfully! We'll get back to you soon."]
-        }) : f.jsxs(f.Fragment, {
-            children: [f.jsx(ET, { size: 20 }), "Something went wrong. Please try again."]
-        })
-    })
-]
-
+                            if(data.success == true){
+                                console.log("Contact form Submitted successfully");
+                            } else {
+                                console.log("Error while submitting the contact form");
+                                console.error("Backend error:", data);
+                            }
+                        } catch (error) {
+                            console.log(error.message);
+                        }
+                        },
+                        className: "btn btn-primary",
+                        disabled: c,
+                        children: c ? f.jsxs(f.Fragment, {
+                            children: [f.jsx("div", {
+                                className: "spinner"
+                            }), "Sending..."]
+                        }) : f.jsxs(f.Fragment, {
+                            children: ["Send Message ", f.jsx(Gc, {
+                                size: 20
+                            })]
+                        })
+                    }), d && f.jsx(ft.div, {
+                        className: `submit-status ${d}`,
+                        initial: {
+                            opacity: 0,
+                            y: 10
+                        },
+                        animate: {
+                            opacity: 1,
+                            y: 0
+                        },
+                        children: d === "success" ? f.jsxs(f.Fragment, {
+                            children: [f.jsx(Hn, {
+                                size: 20
+                            }), "Message sent successfully! We'll get back to you soon."]
+                        }) : f.jsxs(f.Fragment, {
+                            children: [f.jsx(ET, {
+                                size: 20
+                            }), "Something went wrong. Please try again."]
+                        })
+                    })]
                 })]
             })]
         })
@@ -20676,81 +20691,3 @@ function rA() {
 A1.createRoot(document.getElementById("root")).render(f.jsx(L.StrictMode, {
     children: f.jsx(rA, {})
 }));
-
-
-// // // Grab the form element
-// const form = document.getElementById('node-mailer-form');
-// console.log("this is form:", form);
-// // const statusDiv = document.createElement('div'); // For status messages
-// // form.appendChild(statusDiv);
-
-// // Loading state
-// // let isLoading = false;
-
-// // Submit handler
-// form.addEventListener('submit', async (e) => {
-//     console.log("kdjfkdjf");
-//   e.preventDefault();
-// //   if (isLoading) return; // prevent multiple submissions
-// //   isLoading = true;
-
-// //   statusDiv.textContent = "Sending...";
-// //   statusDiv.style.color = "blue";
-
-//   // Collect form data
-//   const formData = {
-//     name: form.name.value.trim(),
-//     email: form.email.value.trim(),
-//     phone: form.phone.value.trim(),
-//     service: form.service.value,
-//     message: form.message.value.trim()
-//   };
-
-//   try {
-//     const res = await fetch('http://localhost:5000/contact', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify(formData)
-//     });
-
-//     const data = await res.json();
-//     console.log("Data received on backend:", data); // check backend log
-
-//     // if (res.ok) {
-//     //   statusDiv.textContent = "Message sent successfully! We'll get back to you soon.";
-//     //   statusDiv.style.color = "green";
-//     //   form.reset(); // clear the form
-//     // } else {
-//     //   statusDiv.textContent = "Something went wrong. Please try again.";
-//     //   statusDiv.style.color = "red";
-//     //   console.error("Backend error:", data);
-//     // }
-//   } catch (err) {
-//     // statusDiv.textContent = "Network error. Please try again.";
-// //     // statusDiv.style.color = "red";
-// //     console.error("Fetch error:", err);
-// //   } 
-// // //   finally {
-// // //     isLoading = false;
-// // //   }
-// // });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   const form = document.getElementById('node-mailer-form');
-//   console.log("Form found:", form);
-
-//   form.addEventListener('submit', async (e) => {
-//     e.preventDefault();
-//     console.log("Form submit triggered!");
-
-//     const formData = {
-//       name: form.name.value.trim(),
-//       email: form.email.value.trim(),
-//       phone: form.phone.value.trim(),
-//       service: form.service.value,
-//       message: form.message.value.trim()
-//     };
-
-//     console.log("Form Data:", formData);
-//   });
-// });
